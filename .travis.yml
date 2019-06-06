@@ -1,0 +1,10 @@
+---
+language: node_js
+node_js: --lts
+before_script:
+  - git config user.name "cn-wx"
+  - git config user.email "xuwang2@student.unimelb.edu.au"
+  - sed -i'' "s~https://github.com/cn-wx/cn-wx.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/cn-wx/cn-wx.github.io.git~" _config.yml
+script:
+  - hexo g
+  - hexo d

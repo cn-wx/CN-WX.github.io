@@ -77,7 +77,7 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy: 
+deploy:
   type: git
-  repo: git@github.com:CN-WX/CN-WX.github.io.git
-  branch: gh-pages
+  repository: git@github.com:CN-WX/CN-WX.github.io.git
+  branch: master

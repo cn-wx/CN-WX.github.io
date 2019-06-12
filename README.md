@@ -4,13 +4,29 @@
 
 Visit: [https://cn-wx.github.io](https://cn-wx.github.io)
 
+## How to use
+
 Create New Post:
 ```
-hexo new [postName]
+hexo n [postName]
 ```
 
+Clean the cache:
+```
+hexo clean
+```
+
+Generate Pages:
+```
+hexo g
+```
 
 View Locally:
 ```
 hexo s
+```
+
+Deploy
+```
+hexo d
 ```

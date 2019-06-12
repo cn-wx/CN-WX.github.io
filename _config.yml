@@ -12,8 +12,8 @@ language: en
 timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+## If your site is put in a subdirectory, set url as 'https://cn-wx.github.io/child' and root as '/child/'
+url: https://cn-wx.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

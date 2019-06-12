@@ -12,5 +12,5 @@ hexo new [postName]
 
 View Locally:
 ```
-hexo server
+hexo s
 ```

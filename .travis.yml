@@ -6,6 +6,6 @@ before_script:
   - git config user.email "xuwang2@student.unimelb.edu.au"
   - sed -i'' "s~https://github.com/cn-wx/cn-wx.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/cn-wx/cn-wx.github.io.git~" _config.yml
 script:
-  = hexo clean
+  - hexo clean
   - hexo g
   - hexo d

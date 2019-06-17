@@ -11,6 +11,6 @@ Youtube link: https://youtu.be/M5xhnEHwKNg/
 <!--more-->
 
 ### Project Background
-* Build a cloud based scalable system that can track Twitter user movement.The software system should be easy be maintain and fault-tolerant.
-* Ability to analysis the text and image content of the Tweets based on theSeven Deadly Sins.  The data analysis section should also be easy to scaleor add additional models to analyze the different content.
+* Build a cloud based scalable system that can track Twitter user movement. The software system should be easy be maintain and fault-tolerant.
+* Ability to analysis the text and image content of the Tweets based on the Seven Deadly Sins. The data analysis section should also be easy to scale or add additional models to analyze the different content.
 

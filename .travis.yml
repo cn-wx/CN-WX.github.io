@@ -1,11 +1,32 @@
 ---
 language: node_js
+
 node_js: lts/*
+
+branches:
+  only:
+  - hexo
+
+before_install:
+  - npm install -g hexo
+  - npm install -g hexo-cli
+
 before_script:
   - git config user.name "cn-wx"
   - git config user.email "xuwang2@student.unimelb.edu.au"
   - sed -i'' "s~https://github.com/cn-wx/cn-wx.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/cn-wx/cn-wx.github.io.git~" _config.yml
+
+install:
+  - npm install
+
+cache:
+  directories:
+    - node_modules
+
 script:
   - hexo clean
   - hexo g
-  - hexo d
+  # - hexo d
+
+after_success:
+  - hexo deploy

@@ -1,15 +1,14 @@
 ---
-title: about
-date: 2018-06-28 07:42:47
+title: About Me
+date: 2019-09-05 01:24:23
 ---
-## About Me
 Master of Computer Science in the University of Melbourne.
 
 Happy coding, happy live.
 
 AIM: Full stack programmer
 
-Looking for: 2019 Internship & part-time job in Melbourne, Australia
+Looking for: 2020 Graduate Program.
 
 E-mail：xuwang2@student.unimelb.edu.au
 

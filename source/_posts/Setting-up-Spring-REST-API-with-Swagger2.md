@@ -14,7 +14,7 @@ The creation of the REST service I use is my own project--<a href="http://amazin
 
 ### Adding the Maven Dependency
 To add it to our Maven project, we need to add dependencies in the pom.xml file.
-```bash
+```xml
 <dependency>
     <groupId>io.springfox</groupId>
     <artifactId>springfox-swagger2</artifactId>
@@ -31,7 +31,7 @@ To add it to our Maven project, we need to add dependencies in the pom.xml file.
 ### Integrating Swagger 2 into the Project
 #### Java Configuration
 The configuration of Swagger mainly centers around the Docket bean.
-```bash
+```java
 @Bean
 public Docket createRestApi() {
     ParameterBuilder tokenPar = new ParameterBuilder();

@@ -4,9 +4,19 @@
 
 Visit: [https://cn-wx.github.io](https://cn-wx.github.io)
 
-## How to use
+## Usage
+
+### NPM Script (Recommended)
+
+```bash
+npm run dev
+```
+Then open your browser on `http://localhost:40000/`.
+
+### Hexo Command
 
 Create New Post:
+
 ```
 hexo n [postName]
 ```

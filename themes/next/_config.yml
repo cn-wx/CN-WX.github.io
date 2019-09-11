@@ -98,6 +98,7 @@ menu:
   #categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
+  Works: /works/ || heartbeat
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 

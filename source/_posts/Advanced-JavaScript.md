@@ -3,7 +3,15 @@ title: Advanced JavaScript
 date: 2019-09-15 16:12:15
 tags: [JavaScript]
 ---
-# Question 1
+
+This article records Javascript questions that I think is important but often ignored by people.
+![JavaScript](../../../../images/js/JavaScript)
+
+<!-- more -->
+
+---
+
+# Array.prototype.map()
 ```js
 ['1', '2', '3'].map(parseInt)
 
@@ -41,4 +49,83 @@ In order to achieve the function we want, we could do this:
 OR
 
 ['1','2','3'].map(n => parseInt(n,10))
+```
+
+---
+
+# extends
+```
+Difference of extends method between ES5 and ES6 
+```
+
+## ES5
+
+* Prototype Inheritance
+
+```js
+// Parent
+function Parent (name) {
+  this.name = name;
+}
+
+Parent.prototype.getName = function () {
+  return this.name;
+}
+
+// Children
+function Children() {
+  this.age = 24;
+}
+
+// Prototype extension
+Children.prototype = new Parent('James');
+
+// Children.prototype.constructor === Parent.prototype.constructor = Parent
+var test = new Children();
+
+// test.constructor === Children.prototype.constructor === Parent
+
+test.age // 24
+test.getName(); // James
+```
+We can find that the whole inheritance process is delegated through the pointing between prototype chains until the final result of "constructed by constructors" is formed.
+
+* Constructor Inheritance
+
+```js
+// Parent
+function Parent (name) {
+  this.name = name;
+}
+
+function Children () {
+  Parent.apply(this, arguments);
+}
+
+var test = new Children('Kiki');
+
+test.name // Kiki
+```
+
+The key of constructor inheritance is to get the members and methods of the parent class on the newly created objects in the future by calling the parent class inside the child class, that is, by using the apply() or call() method.
+
+
+
+## ES6
+```js
+class Father {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  show() {
+    console.log(`Name:${this.name}， Age: ${this.age}`);
+  }
+};
+
+class Son extends Father {};
+let son = new Son('James', 24);
+
+son.show(); // Name: James, Age: 24
 ```

@@ -5,7 +5,7 @@ tags: [JavaScript]
 ---
 
 This article records Javascript questions that I think is important but often ignored by people.
-![JavaScript](../../../../images/js/JavaScript)
+![JavaScript](../../../../images/js/JavaScript.jpg)
 
 <!-- more -->
 

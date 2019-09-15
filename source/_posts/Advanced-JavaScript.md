@@ -1,7 +1,7 @@
 ---
 title: Advanced JavaScript
 date: 2019-09-15 16:12:15
-tags:
+tags: [JavaScript]
 ---
 # Question 1
 ```js

@@ -10,8 +10,9 @@ tags: [travel]
 * 1月23日 00:30 - 1月23日 12:05  ｜ Melbourne 到 长沙（机票不变）
 
 <!-- more -->
+---
 
-# Perth 市区
+# Perth
 1月15日下午在市区玩，晚上住市区
 `// TODO: 住宿`
 
@@ -42,8 +43,15 @@ tags: [travel]
 * ...
 
 
-`// TODO: 18 19 20日行程`
+`// TODO: 18 19日行程`
 
-# Elizabeth Quay
-# Heirisson Island 袋鼠岛
-# 
+---
+
+# Melbourne
+1月20日 取车
+
+## 项目
+* Cactus country 仙人掌王国🌵
+* Ashcombe Maze & Lavender Gardens 薰衣草花园
+* Loch lel 粉湖 (?)
+![melbourne-plan](../../../../images/travel/melbourne-plan.png)

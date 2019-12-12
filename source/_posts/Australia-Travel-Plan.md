@@ -28,7 +28,7 @@ tags: [travel]
 
 ## Plan
 
-[【点击查看淘宝】](https://traveldetail.fliggy.hk/item.htm?spm=a230r.1.14.1.38c777a0Vejraj&id=591063274769&ns=1&abbucket=19): 大约`¥1600 x 2`
+[【点击查看淘宝】](https://traveldetail.fliggy.hk/item.htm?spm=a230r.1.14.1.38c777a0Vejraj&id=591063274769&ns=1&abbucket=19): 大约`¥2000 x 2`
 
 ---
 

@@ -54,4 +54,5 @@ tags: [travel]
 * Cactus country 仙人掌王国🌵
 * Ashcombe Maze & Lavender Gardens 薰衣草花园
 * Loch lel 粉湖 (?)
+* Cosy Tent 帐篷酒店 (?)
 ![melbourne-plan](../../../../images/travel/melbourne-plan.png)

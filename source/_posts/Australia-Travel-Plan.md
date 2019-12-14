@@ -7,10 +7,11 @@ tags: [travel]
 # Perth
 
 ## Accommodation
-`// TODO`
+
+1月15日 InterContinental Perth City Centre
 
 ## Plan
-1月15日 00:20 - 1月15日 09:50 ｜ ✈️ 上海 到 Perth `改签费 $169`
+1月15日 00:20 - 1月15日 09:50 ｜ ✈️ 上海 到 Perth
 
 1月15日下午在市区玩，晚上住市区
 
@@ -26,6 +27,12 @@ tags: [travel]
 
 1月16日，17日 ｜ 跟团出行
 
+## Accommodation
+
+1月16日 跟团
+
+1月17日 The Westin Perth
+
 ## Plan
 
 [【点击查看淘宝】](https://traveldetail.fliggy.hk/item.htm?spm=a230r.1.14.1.38c777a0Vejraj&id=591063274769&ns=1&abbucket=19): 大约`¥2000 x 2`
@@ -35,8 +42,11 @@ tags: [travel]
 # Rottnest Island 老鼠岛
 
 ## Accommodation
+
+1月18日
+
 * Hotel Rottnest [【点击查看详情】](https://www.rottnestisland.com/accommodation/accommodation-types/hotel-rottnest): `票价要打电话咨询`
-* Island Couples Retreat [【点击查看详情】](https://www.rottnestisland.com/accommodation/accommodation-types/premium-accommodation): `$214`
+* Island Couples Retreat [【点击查看详情】](https://www.rottnestisland.com/accommodation/accommodation-types/premium-accommodation): `$246`
 
 ## Plan
 1月18日上午07:00 | Perth市区酒店出发，坐船去老鼠岛。[【点击查看淘宝】](https://traveldetail.fliggy.com/item.htm?spm=a230r.1.14.1.720d6f022EctP3&id=584671753240&ad_id=&am_id=&cm_id=140105335569ed55e27b&pm_id=&abbucket=19): `¥536 x 2`
@@ -61,7 +71,12 @@ tags: [travel]
 # Melbourne
 
 ## Accommodation
-`// TODO`
+
+1月19日 LightHouse Airbnb
+
+1月20日 Bendigo 帐篷酒店
+
+1月21日 待定
 
 ## Plan
 

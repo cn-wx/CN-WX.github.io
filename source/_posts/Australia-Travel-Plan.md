@@ -23,9 +23,7 @@ tags: [travel]
 
 ---
 
-# Pink lake - Pinnacles - Lobster Shack - Lancelin
-
-1月16日，17日 ｜ 跟团出行
+# Hutt lagoon - Lancelin - Pinnacles - Lobster Shack - Geraldton
 
 ## Accommodation
 
@@ -35,7 +33,21 @@ tags: [travel]
 
 ## Plan
 
-[【点击查看淘宝】](https://traveldetail.fliggy.hk/item.htm?spm=a230r.1.14.1.38c777a0Vejraj&id=591063274769&ns=1&abbucket=19): 大约`¥2000 x 2`
+1月16日 6:50 酒店出发
+
+1月16日 9:00 Lancelin 滑沙
+
+1月16日 10:30 Pinnacles
+
+1月16日 11:45 Lobster Shack
+
+1月16日 16:40 Geraldton
+
+1月16日 晚上观星
+
+1月17日 12:15 小飞机看粉湖
+
+1月17日 19:00 Arrive Perth
 
 ---
 

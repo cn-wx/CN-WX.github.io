@@ -8,8 +8,8 @@ branches:
   - hexo
 
 before_install:
-  - npm install -g hexo
-  - npm install -g hexo-cli
+  - npm install -g hexo --force
+  - npm install -g hexo-cli --force
 
 before_script:
   - git config user.name "cn-wx"

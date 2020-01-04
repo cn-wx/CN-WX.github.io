@@ -78,11 +78,11 @@ Discovery Rottnest Island 高级帐篷房
 
 ## Accommodation
 
-1月19日 Airbnb 待定
+1月19日 Pan Pacific Melbourne
 
 1月20日 Bendigo 帐篷酒店
 
-1月21日 Airbnb 待定
+1月21日 Airbnb - EQ Tower
 
 ## Plan
 

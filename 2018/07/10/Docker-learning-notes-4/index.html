@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="docker,SSL,Spring Boot," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Differences between Http and Https● The HyperText Transfer Protocol (HTTP) protocol is used to transmit information between the Web browser and the web server. The HTTP protocol sends content in plain">
+<meta name="keywords" content="docker,SSL,Spring Boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker learning notes(4)--SSL certificates">
+<meta property="og:url" content="https://cn-wx.github.io/2018/07/10/Docker-learning-notes-4/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Differences between Http and Https● The HyperText Transfer Protocol (HTTP) protocol is used to transmit information between the Web browser and the web server. The HTTP protocol sends content in plain">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/HTTPvsHTTPS.jpg">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/SSL-certificate-1.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/SSL-certificate-2.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/SSL-configurations.png">
+<meta property="og:updated_time" content="2020-10-07T12:48:20.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker learning notes(4)--SSL certificates">
+<meta name="twitter:description" content="Differences between Http and Https● The HyperText Transfer Protocol (HTTP) protocol is used to transmit information between the Web browser and the web server. The HTTP protocol sends content in plain">
+<meta name="twitter:image" content="https://cn-wx.github.io/images/docker/HTTPvsHTTPS.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'QI0AF18FF2',
+      apiKey: '250f1627481e6053b23b12198c791362',
+      indexName: 'cn-wx',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://cn-wx.github.io/2018/07/10/Docker-learning-notes-4/"/>
+
+
+
+
+
+  <title>Docker learning notes(4)--SSL certificates | Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/CN-WX"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Works
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cn-wx.github.io/2018/07/10/Docker-learning-notes-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="James Wang 王煦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker learning notes(4)--SSL certificates</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T20:30:28+00:00">
+                2018-07-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-07T12:48:20+00:00">
+                2020-10-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/10/Docker-learning-notes-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/10/Docker-learning-notes-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Differences-between-Http-and-Https"><a href="#Differences-between-Http-and-Https" class="headerlink" title="Differences between Http and Https"></a>Differences between Http and Https</h3><p>● The HyperText Transfer Protocol (HTTP) protocol is used to transmit information between the Web browser and the web server. The HTTP protocol sends content in plaintext, and does not provide any way of data encryption. If an attacker intercepts the transmission message between the Web browser and the web server, the information can be read directly. Therefore, HTTP protocol is not suitable for transmitting some sensitive information, such as credit card number, password and other payment information.<br><a id="more"></a><br>● In order to solve this defect of the HTTP protocol, it is necessary to use another protocol: Hypertext Transfer Protocol Secure (HTTPS). In order to secure data transmission, HTTPS adds SSL protocol on the basis of HTTP. SSL relies on certificates to verify the identity of the server and encrypts the communication between the browser and the server.</p>
+<p><img src="../../../../images/docker/HTTPvsHTTPS.jpg" alt="HTTPvsHTTPS"></p>
+<p>● The data transmitted by the HTTP protocol are not encrypted, that is, plaintext, so it is very unsafe to use the HTTP protocol to transmit privacy information. In order to ensure the encryption and transmission of these privacy data, the Netscape Co designed the SSL (Secure Sockets Layer) protocol to encrypt the data transmitted by the HTTP protocol–HTTPS. To put it simply, the HTTPS protocol is a network protocol constructed by SSL+HTTP protocol, which is capable of encrypting transmission and identity authentication,so it’s more secure than HTTP protocol.</p>
+<h3 id="Apply-for-a-SSL-certificate"><a href="#Apply-for-a-SSL-certificate" class="headerlink" title="Apply for a SSL certificate"></a>Apply for a SSL certificate</h3><p>● There are several ways to apply a SSL certificate, and I chose TrustAsia SSL certificate.The process of application will not be detailed.<br>Below are the certificates for Apache, IIS, Nginx and Tomcat:<br><img src="../../../../images/docker/SSL-certificate-1.png" alt="SSL-certificate-1"></p>
+<h3 id="Configure-SSL-for-Spring-Boot-project"><a href="#Configure-SSL-for-Spring-Boot-project" class="headerlink" title="Configure SSL for Spring Boot project"></a>Configure SSL for Spring Boot project</h3><p>● Put the certificate( .jks file in tomcat folder) in the project at the application.yml level directory.<br><img src="../../../../images/docker/SSL-certificate-2.png" alt="SSL-certificate-2"><br>● Add configurations for ssl in applcation.yml( or application.properties)<br><img src="../../../../images/docker/SSL-configurations.png" alt="SSL-configurations"></p>
+<p>● Add http redirect in the Spring Boot application file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public EmbeddedServletContainerFactory <span class="function"><span class="title">servletContainer</span></span>()&#123;</span><br><span class="line">    TomcatEmbeddedServletContainerFactory tomcat=new <span class="function"><span class="title">TomcatEmbeddedServletContainerFactory</span></span>()&#123;</span><br><span class="line">        @Override</span><br><span class="line">        protected void postProcessContext(Context context) &#123;</span><br><span class="line">            SecurityConstraint securityConstraint=new SecurityConstraint();</span><br><span class="line">            securityConstraint.setUserConstraint(<span class="string">"CONFIDENTIAL"</span>);//confidential</span><br><span class="line">            SecurityCollection collection=new SecurityCollection();</span><br><span class="line">            collection.addPattern(<span class="string">"/*"</span>);</span><br><span class="line">            securityConstraint.addCollection(collection);</span><br><span class="line">            context.addConstraint(securityConstraint);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    tomcat.addAdditionalTomcatConnectors(httpConnector());</span><br><span class="line">    <span class="built_in">return</span> tomcat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Bean</span><br><span class="line">public Connector <span class="function"><span class="title">httpConnector</span></span>() &#123;</span><br><span class="line">    Connector connector = new Connector(<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span>);</span><br><span class="line">    connector.setScheme(<span class="string">"http"</span>);</span><br><span class="line">    // The port number of the HTTP that Connector monitors</span><br><span class="line">    connector.setPort(80);</span><br><span class="line">    connector.setSecure(<span class="literal">false</span>);</span><br><span class="line">    // Redirect port after monitoring HTTP port</span><br><span class="line">    connector.setRedirectPort(443);</span><br><span class="line">    <span class="built_in">return</span> connector;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Add-‘Post-Steps’-‘Execute-shell’-in-Jenkins"><a href="#Add-‘Post-Steps’-‘Execute-shell’-in-Jenkins" class="headerlink" title="Add ‘Post Steps’-‘Execute shell’ in Jenkins"></a>Add ‘Post Steps’-‘Execute shell’ in Jenkins</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/jenkins/<span class="built_in">jobs</span>/wxblog</span><br><span class="line">sudo docker build -t wxblog:<span class="variable">$BUILD_NUMBER</span> .</span><br><span class="line">sudo docker ps -a | grep wxblog | awk <span class="string">'&#123;print $1&#125;'</span> | xargs sudo docker rm -f</span><br><span class="line">sudo docker run -d -p 80:80 -p 443:443 --name wxblog_<span class="variable">$BUILD_NUMBER</span> wxblog:<span class="variable">$BUILD_NUMBER</span></span><br><span class="line">sudo docker images|grep wxblog|awk <span class="string">'&#123;print $3 &#125;'</span>|xargs sudo docker rmi</span><br></pre></td></tr></table></figure>
+<p>● DON’T FORGET to run both ports: <code>-p 80:80 -p 443:443</code>.<br><br><br><br>● Congratulation! When you visit <a href="http://www.amazingxu.xyz" target="_blank" rel="noopener">http://www.amazingxu.xyz</a> , the website will redirect to <a href="https://www.amazingxu.xyz" target="_blank" rel="noopener">https://www.amazingxu.xyz</a> with a secure mark beside your address bar : )</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+            <a href="/tags/SSL/" rel="tag"><i class="fa fa-tag"></i> SSL</a>
+          
+            <a href="/tags/Spring-Boot/" rel="tag"><i class="fa fa-tag"></i> Spring Boot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/28/Docker-learning-notes-3/" rel="next" title="Docker learning notes(3)--Use Jenkins for CI/CD">
+                <i class="fa fa-chevron-left"></i> Docker learning notes(3)--Use Jenkins for CI/CD
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/Setting-up-Spring-REST-API-with-Swagger2/" rel="prev" title="Setting up Spring REST API with Swagger2">
+                Setting up Spring REST API with Swagger2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="James Wang 王煦" />
+            
+              <p class="site-author-name" itemprop="name">James Wang 王煦</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CN-WX" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuwang2@student.unimelb.edu.au" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/james-wang-cn/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.amazingxu.xyz" target="_blank" title="Website">
+                      
+                        <i class="fa fa-fw fa-link"></i>Website</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Differences-between-Http-and-Https"><span class="nav-number">1.</span> <span class="nav-text">Differences between Http and Https</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apply-for-a-SSL-certificate"><span class="nav-number">2.</span> <span class="nav-text">Apply for a SSL certificate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configure-SSL-for-Spring-Boot-project"><span class="nav-number">3.</span> <span class="nav-text">Configure SSL for Spring Boot project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-‘Post-Steps’-‘Execute-shell’-in-Jenkins"><span class="nav-number">4.</span> <span class="nav-text">Add ‘Post Steps’-‘Execute shell’ in Jenkins</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Wang 王煦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">  Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_container_site_pv"> Viewers:<span id="busuanzi_value_site_pv"></span>
+  </div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://cn-wx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://cn-wx.github.io/2018/07/10/Docker-learning-notes-4/';
+          this.page.identifier = '2018/07/10/Docker-learning-notes-4/';
+          this.page.title = 'Docker learning notes(4)--SSL certificates';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cn-wx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

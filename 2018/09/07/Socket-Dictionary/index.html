@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Socket,Multi-thread," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="IntroductionThis is project 1 of Distributed Systems (COMP90015) Semester 2, 2018, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and socket">
+<meta name="keywords" content="Socket,Multi-thread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Socket Dictionary">
+<meta property="og:url" content="https://cn-wx.github.io/2018/09/07/Socket-Dictionary/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="IntroductionThis is project 1 of Distributed Systems (COMP90015) Semester 2, 2018, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and socket">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/server-class-diagram.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/client-class-diagram.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/overall-class-diagram.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/interaction-diagram.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/flow-chart.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/Server1.png">
+<meta property="og:image" content="https://cn-wx.github.io/images/socket/Client1.png">
+<meta property="og:updated_time" content="2020-10-07T12:48:20.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Socket Dictionary">
+<meta name="twitter:description" content="IntroductionThis is project 1 of Distributed Systems (COMP90015) Semester 2, 2018, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and socket">
+<meta name="twitter:image" content="https://cn-wx.github.io/images/socket/server-class-diagram.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'QI0AF18FF2',
+      apiKey: '250f1627481e6053b23b12198c791362',
+      indexName: 'cn-wx',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://cn-wx.github.io/2018/09/07/Socket-Dictionary/"/>
+
+
+
+
+
+  <title>Socket Dictionary | Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/CN-WX"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Works
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cn-wx.github.io/2018/09/07/Socket-Dictionary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="James Wang 王煦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Socket Dictionary</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T00:23:07+00:00">
+                2018-09-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-07T12:48:20+00:00">
+                2020-10-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/07/Socket-Dictionary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/07/Socket-Dictionary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This is project 1 of <a href="https://handbook.unimelb.edu.au/2018/subjects/comp90015" target="_blank" rel="noopener">Distributed Systems (COMP90015) Semester 2, 2018</a>, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and sockets. The dictionary system follows a Client-Server structure with a thread-per-connection architecture. Dictionary datafile uses JSON format with a Java version of 8 and maven version of 3.5 for packaging jar files.  </p>
+<h3 id="Download-the-source-code"><a href="#Download-the-source-code" class="headerlink" title="Download the source code"></a>Download the source code</h3><p>Link: <a href="https://github.com/CN-WX/Dictionary/" target="_blank" rel="noopener">https://github.com/CN-WX/Dictionary/</a><br><a id="more"></a></p>
+<h3 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run?"></a>How to run?</h3><ul>
+<li>Server: <code>java -jar Server.jar</code></li>
+<li>Client: <code>java -jar Client.jar &lt;optional-host&gt; &lt;optional-port&gt;</code> </li>
+</ul>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p>Once Server established the Server Socket, Clients can connect to the server and query, add, remove words from the dictionary on Server.</p>
+<h2 id="System-structure"><a href="#System-structure" class="headerlink" title="System structure"></a>System structure</h2><h3 id="Class-Structure"><a href="#Class-Structure" class="headerlink" title="Class Structure"></a>Class Structure</h3><p>In this design, there are total 15 classes, in which 7 of them are core classes in the Server end, 4 of them are core classes in the Client end, 4 enumeration files for message transmission. Dependencies and the definition between classes are shown below.<br><img src="../../../../images/socket/server-class-diagram.png" alt="server-class-diagram"><br>The main class is &lt; Server &gt; which extends “JavaFX.Application” for creating a Server GUI for the server. Class &lt; ServerController &gt; handles the actions when pressing button on the UI of the server, including establishing and closing the ServerSocket. &lt; Handler &gt; is a class that extends Thread, does the loop to monitor new clients connected to the server socket. If there is a client sending a request for connecting to the socket, the server socket accepts it and create a new Thread for each client in the class MessageListener. &lt; MessageListener &gt; is a class that extends Thread, handling the requests sent by the clients, such as searching words in the dictionary, adding a new word to the dictionary and deleting an exist word from the dictionary. &lt; Information &gt; is a class for getting and setting information from / to the table on the server UI. Class &lt; Dictionary &gt; handles between HashMap and the dictionary file, including operations of reading, writing and updating JSON file from / to HashMap. &lt; Message &gt; is a class that extends Serializable, setting up a message criterion between client-end. &lt; MessageType &gt; and &lt; Status &gt; are enumeration files for message types (add, search and delete) and (exist, inexistent and connected), respectively.<br><img src="../../../../images/socket/client-class-diagram.png" alt="client-class-diagram"><br>As for the Client end, class &lt; Client &gt; is the main class, which extends “JavaFX.Application” for creating the GUI. Class &lt; Controller &gt; initializes background animation for the GUI and implements the logic when pressing down buttons on the client-end’s UI. As long as the UI is opened, it sends a request for connecting to the server through stream socket. Once it is connected, &lt; MessageListener &gt; handles for messages from the client UI and sends it to the output stream, meanwhile listen to the input stream from the socket. Same as the server, Class &lt; Message &gt;, &lt; MessageType &gt; and &lt; Status &gt; are in client-end are as same as the server. The overall class design of core classes is shown below.<br><img src="../../../../images/socket/overall-class-diagram.png" alt="overall-class-diagram"></p>
+<h3 id="Interaction-Diagram"><a href="#Interaction-Diagram" class="headerlink" title="Interaction Diagram"></a>Interaction Diagram</h3><p><img src="../../../../images/socket/interaction-diagram.png" alt="interaction-diagram"><br>The Interaction diagram is shown above. As long as the Server Socket is established, clients can make requests through their own thread. Server updates the dictionary once it has been changed so that the next query from clients doesn’t need to read the dictionary again.</p>
+<h3 id="Flow-Chart"><a href="#Flow-Chart" class="headerlink" title="Flow Chart"></a>Flow Chart</h3><p><img src="../../../../images/socket/flow-chart.png" alt="flow-chart"><br>The procedure of the system is shown in the flow chart diagram above. First, the server socket establishes when the start button on server UI is clicked, then creates a thread for listening new connects. Once a client request for connecting to the server, a thread will be created for connecting the client and the server. Message listener in clients and server will be handling the message transmission. The operation of writing new words and definition to the dictionary file is synchronized so that clients can write to the server one by one.</p>
+<h2 id="System-design"><a href="#System-design" class="headerlink" title="System design"></a>System design</h2><h3 id="Functional"><a href="#Functional" class="headerlink" title="Functional"></a>Functional</h3><p>Clients can query the meaning of a given word, add a new word and remove an existing word, the input and output are clear and users can know exactly what when wrong when errors occur. For the server, it can handle every message been sent by every client and catch all exceptions.</p>
+<h3 id="Multi-Threads"><a href="#Multi-Threads" class="headerlink" title="Multi-Threads"></a>Multi-Threads</h3><p>The designing for socket-thread I use is thread per connection, i.e. whenever a new connection is created, a thread is created. For the server, one thread will be handling connections between clients and one thread will be handling operations such as searching words in the dictionary, etc.</p>
+<h3 id="Graphical-User-Interface"><a href="#Graphical-User-Interface" class="headerlink" title="Graphical User Interface"></a>Graphical User Interface</h3><p>I designed and implemented a graphical user interface for both Server and Client using JavaFX in Java 8. Among them, a TableView is created for listing operations sent by the Client. The UI snapshot is shown below.<br><img src="../../../../images/socket/Server1.png" alt="Server1"><br><img src="../../../../images/socket/Client1.png" alt="Client1"> </p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The reasons for designing this socket dictionary system to “Thread-per-connection” are as follows. First of all, it is guaranteed that the main thread will only block on the accept call and will not be blocked by other situations, especially by the specific application processing code such as searching words etc. Second, unlike “Thread-per-request”, it is more convenient for server managing the clients’ requests. But this kind of design can’t guarantee connection concurrency, which means if thousands of people try to connect one server, only the first few of them can connect successful and others would wait until the previous clients disconnect the server.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Socket/" rel="tag"><i class="fa fa-tag"></i> Socket</a>
+          
+            <a href="/tags/Multi-thread/" rel="tag"><i class="fa fa-tag"></i> Multi-thread</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/23/AI-Search-Methods/" rel="next" title="AI Search Methods">
+                <i class="fa fa-chevron-left"></i> AI Search Methods
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/17/TrackHub/" rel="prev" title="TrackHub">
+                TrackHub <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="James Wang 王煦" />
+            
+              <p class="site-author-name" itemprop="name">James Wang 王煦</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CN-WX" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuwang2@student.unimelb.edu.au" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/james-wang-cn/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.amazingxu.xyz" target="_blank" title="Website">
+                      
+                        <i class="fa fa-fw fa-link"></i>Website</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Download-the-source-code"><span class="nav-number">1.1.</span> <span class="nav-text">Download the source code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-run"><span class="nav-number">1.2.</span> <span class="nav-text">How to run?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">1.3.</span> <span class="nav-text">Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-structure"><span class="nav-number">2.</span> <span class="nav-text">System structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-Structure"><span class="nav-number">2.1.</span> <span class="nav-text">Class Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interaction-Diagram"><span class="nav-number">2.2.</span> <span class="nav-text">Interaction Diagram</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flow-Chart"><span class="nav-number">2.3.</span> <span class="nav-text">Flow Chart</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-design"><span class="nav-number">3.</span> <span class="nav-text">System design</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Functional"><span class="nav-number">3.1.</span> <span class="nav-text">Functional</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Threads"><span class="nav-number">3.2.</span> <span class="nav-text">Multi-Threads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graphical-User-Interface"><span class="nav-number">3.3.</span> <span class="nav-text">Graphical User Interface</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Wang 王煦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">  Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_container_site_pv"> Viewers:<span id="busuanzi_value_site_pv"></span>
+  </div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://cn-wx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://cn-wx.github.io/2018/09/07/Socket-Dictionary/';
+          this.page.identifier = '2018/09/07/Socket-Dictionary/';
+          this.page.title = 'Socket Dictionary';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cn-wx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

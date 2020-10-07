@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="docker," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Introduction： Series of Docker learning notes are based on:OS：Ubuntu 16.04 LTSJava version：Jdk 1.8。">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker learning notes(1)--Docker Intoduction">
+<meta property="og:url" content="https://cn-wx.github.io/2018/06/26/Docker-learning-notes-1/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Introduction： Series of Docker learning notes are based on:OS：Ubuntu 16.04 LTSJava version：Jdk 1.8。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/docker.jpg">
+<meta property="og:image" content="https://cn-wx.github.io/images/docker/docker-image.png">
+<meta property="og:updated_time" content="2020-10-07T12:48:20.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker learning notes(1)--Docker Intoduction">
+<meta name="twitter:description" content="Introduction： Series of Docker learning notes are based on:OS：Ubuntu 16.04 LTSJava version：Jdk 1.8。">
+<meta name="twitter:image" content="https://cn-wx.github.io/images/docker/docker.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'QI0AF18FF2',
+      apiKey: '250f1627481e6053b23b12198c791362',
+      indexName: 'cn-wx',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://cn-wx.github.io/2018/06/26/Docker-learning-notes-1/"/>
+
+
+
+
+
+  <title>Docker learning notes(1)--Docker Intoduction | Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/CN-WX"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Works
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cn-wx.github.io/2018/06/26/Docker-learning-notes-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="James Wang 王煦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker learning notes(1)--Docker Intoduction</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-26T21:44:07+00:00">
+                2018-06-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-07T12:48:20+00:00">
+                2020-10-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/26/Docker-learning-notes-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/26/Docker-learning-notes-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Introduction："><a href="#Introduction：" class="headerlink" title="Introduction："></a>Introduction：</h2><ul>
+<li>Series of <strong>Docker learning notes</strong> are based on:<br>OS：Ubuntu 16.04 LTS<br>Java version：Jdk 1.8。  <a id="more"></a>
+<h3 id="What-is-Docker"><a href="#What-is-Docker" class="headerlink" title="What is Docker?"></a>What is Docker?</h3><img src="../../../../images/docker/docker.jpg" alt="docker"></li>
+<li>Docker’s idea comes from cargo containers. What problem can cargo containers solve? For example, goods can be put in order on a large ship and all kinds of goods are standardized by containers, containers and containers do not interact with each other so that we don’t need a special fruit ship or a chemical carrier. As long as these goods are properly packaged in containers, we can transport them with one large ship. Docker is a similar idea like this. Cloud computing is now very popular, and cloud computing is like a big cargo ship while docker is a container.</li>
+</ul>
+<p>1&gt;&nbsp;Different applications may have different application environments, for example, dependencies for websites developed by .Net and by PHP are not the same. If install their dependencies on one server, debugging will take a long time and dependencies might be conflict to each other. For example, IIS and Apache access port conflicts. At this point, you have to isolate the website developed by .Net and the website developed by PHP. Traditionally, we can create different virtual machines on the server and put different applications on different virtual machines, but the cost of virtual machines is relatively high. Docker can realize the function of virtual machine isolation application environment, and it costs less than virtual machine.</p>
+<p>2&gt;&nbsp;When you develop the software on Ubuntu, but the operation and maintenance management is on CentOS, the operation and maintenance of your software from the development environment to the production environment will encounter some Ubuntu to CentOS problems, such as: a special version of the database only supported on Ubuntu but not on CentOS, so that you have to solve such problems during the process of transfer between operations. But if you use docker, you can directly transfer the development environment to operation and deploy by docker directly and faster than regular deployment.</p>
+<p>3&gt;&nbsp;On the server load, if you use virtual machines instead of docker, free memory will not be used.</p>
+<h3 id="Life-cycle-of-docker-（image-container-registry）"><a href="#Life-cycle-of-docker-（image-container-registry）" class="headerlink" title="Life cycle of docker:（image, container, registry）"></a>Life cycle of docker:（image, container, registry）</h3><h4 id="1-docker-image"><a href="#1-docker-image" class="headerlink" title="1.docker image"></a>1.docker image</h4><ul>
+<li>Docker image is actually made up of a file system, which is called UnionFS. At the bottom of the Docker image is bootfs. This layer is the same as our typical Linux/Unix system, including boot loader and kernel. When the boot is loaded, the kernel is all in memory. At this point, the right to use memory is transferred from bootfs to the kernel, and the system will also unload bootfs. The first layer of Docker on bootfs is rootfs (root file system). Rootfs is the distribution of different operating systems, such as Ubuntu, Centos and so on.<br><img src="../../../../images/docker/docker-image.png" alt="docker-image"><h4 id="2-docker-container"><a href="#2-docker-container" class="headerlink" title="2.docker container"></a>2.docker container</h4></li>
+<li><code>docker run</code>&nbsp;Instantiate an image to a container, similar to “new” in java.<br></li>
+<li>Some parameters for <code>docker run</code>：<br><br><code>-d</code> : Run container in background<br><br><code>-e</code> : Set environment variables<br><br><code>-p</code> : Host port:Container port <br><br><code>--name</code> : Set name for container</li>
+</ul>
+<h4 id="3-docker-registry"><a href="#3-docker-registry" class="headerlink" title="3.docker registry"></a>3.docker registry</h4><ul>
+<li>A place to store and share docker images.<br><br>eg., Docker Hub: &nbsp;<a href="https://hub.docker.com" target="_blank" rel="noopener">hub.docker.com</a></li>
+</ul>
+<h3 id="Deploying-a-web-application-with-docker"><a href="#Deploying-a-web-application-with-docker" class="headerlink" title="Deploying a web application with docker"></a>Deploying a web application with docker</h3><h4 id="1-pull-source-code-to-host"><a href="#1-pull-source-code-to-host" class="headerlink" title="1.pull source code to host"></a>1.pull source code to host</h4><p>Subversion: <code>svn checkout svn://svn_address [host_volume]</code><br><br>Git:<code>git clone [.git file]</code></p>
+<h4 id="2-Packaging-jar-war-file-through-Maven-ANT-Other"><a href="#2-Packaging-jar-war-file-through-Maven-ANT-Other" class="headerlink" title="2.Packaging .jar/.war file through Maven/ANT/Other"></a>2.Packaging .jar/.war file through Maven/ANT/Other</h4><p><code>mvn package</code> / <code>ant makewar</code> / etc.</p>
+<h4 id="3-Write-a-Dockerfile"><a href="#3-Write-a-Dockerfile" class="headerlink" title="3.Write a Dockerfile"></a>3.Write a Dockerfile</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FROM [imageName：tag]</span><br><span class="line">MAINTAINER [author] [contact_e-mail]</span><br><span class="line">ADD [.jar file] [volume_in_docker_container]</span><br><span class="line">RUN bash -c <span class="string">'touch /opt/xxx.jar'</span></span><br><span class="line"><span class="comment">#Change timezone</span></span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">"Asia/Shanghai"</span> &gt; /etc/timezone &amp;&amp; dpkg-reconfigure -f noninteractive tzdata</span><br><span class="line"><span class="comment">#expose default port [8080_for_tomcat]</span></span><br><span class="line">EXPOSE 8080</span><br><span class="line"><span class="comment">#execute .war/.jar file</span></span><br><span class="line">CMD [<span class="string">"catalina.sh"</span>,<span class="string">"run"</span>]       --<span class="keyword">for</span> xxx.war</span><br><span class="line">CMD [<span class="string">"java"</span>,<span class="string">"-jar"</span>,<span class="string">"/opt/xxx.jar"</span>]   --<span class="keyword">for</span> xxx.jar</span><br></pre></td></tr></table></figure>
+<h4 id="4-Docker-build"><a href="#4-Docker-build" class="headerlink" title="4.Docker build"></a>4.Docker build</h4><ul>
+<li><code>docker build -t [imageName] .</code><br><em>DO NOT FORGET</em> the <code>.</code> at the back.</li>
+</ul>
+<h4 id="5-Docker-run"><a href="#5-Docker-run" class="headerlink" title="5.Docker run"></a>5.Docker run</h4><ul>
+<li><code>docker run -d -p [port]:[port in container]</code></li>
+</ul>
+<h3 id="Other-commands-for-docker"><a href="#Other-commands-for-docker" class="headerlink" title="Other commands for docker"></a>Other commands for docker</h3><p><code>sudo docker ps -a</code> : List all containers<br><code>sudo docker images</code> : List all images<br><code>sudo docker images|grep test|awk &#39;{print $3 }&#39;|xargs sudo docker rmi</code> : remove all images that contain ‘test’</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/Docker-learning-notes-2/" rel="prev" title="Docker learning notes(2)--Install Docker">
+                Docker learning notes(2)--Install Docker <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="James Wang 王煦" />
+            
+              <p class="site-author-name" itemprop="name">James Wang 王煦</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CN-WX" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xuwang2@student.unimelb.edu.au" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/james-wang-cn/" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i>Linkedin</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.amazingxu.xyz" target="_blank" title="Website">
+                      
+                        <i class="fa fa-fw fa-link"></i>Website</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction："><span class="nav-number">1.</span> <span class="nav-text">Introduction：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Docker"><span class="nav-number">1.1.</span> <span class="nav-text">What is Docker?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Life-cycle-of-docker-（image-container-registry）"><span class="nav-number">1.2.</span> <span class="nav-text">Life cycle of docker:（image, container, registry）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-docker-image"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.docker image</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-docker-container"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.docker container</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-docker-registry"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.docker registry</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploying-a-web-application-with-docker"><span class="nav-number">1.3.</span> <span class="nav-text">Deploying a web application with docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-pull-source-code-to-host"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.pull source code to host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Packaging-jar-war-file-through-Maven-ANT-Other"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.Packaging .jar/.war file through Maven/ANT/Other</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Write-a-Dockerfile"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.Write a Dockerfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Docker-build"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.Docker build</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Docker-run"><span class="nav-number">1.3.5.</span> <span class="nav-text">5.Docker run</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-commands-for-docker"><span class="nav-number">1.4.</span> <span class="nav-text">Other commands for docker</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Wang 王煦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">  Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_container_site_pv"> Viewers:<span id="busuanzi_value_site_pv"></span>
+  </div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://cn-wx.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://cn-wx.github.io/2018/06/26/Docker-learning-notes-1/';
+          this.page.identifier = '2018/06/26/Docker-learning-notes-1/';
+          this.page.title = 'Docker learning notes(1)--Docker Intoduction';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://cn-wx.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

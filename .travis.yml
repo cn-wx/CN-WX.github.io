@@ -26,7 +26,7 @@ cache:
 script:
   - hexo clean
   - hexo g
-  # - hexo d
+  - hexo d
 
 after_success:
   - hexo deploy

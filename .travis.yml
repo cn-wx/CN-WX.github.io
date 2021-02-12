@@ -10,6 +10,7 @@ branches:
 before_install:
   - npm install -g hexo --force
   - npm install -g hexo-cli --force
+  - npm install hexo-deployer-git --save
 
 before_script:
   - git config user.name "jamesxwang"
@@ -26,7 +27,6 @@ cache:
 script:
   - hexo clean
   - hexo g
-  - hexo d
 
 after_success:
   - hexo deploy

@@ -10,7 +10,7 @@ Moreover, every change in the API should be simultaneously described in the refe
 If you are not familiar with Swagger, you should visit <a href="http://swagger.io">its web page</a> to learn more before continuing with this article.
 
 ### Target Project
-The creation of the REST service I use is my own project--<a href="http://amazingxu.xyz">amazingxu.xyz</a>. Source code are available on my <a href="http://github.com/CN-WX">Github</a>.
+The creation of the REST service I use is my own project--<a href="http://amazingxu.xyz">amazingxu.xyz</a>. Source code are available on my <a href="http://github.com/jamesxwang">Github</a>.
 
 ### Adding the Maven Dependency
 To add it to our Maven project, we need to add dependencies in the pom.xml file.

@@ -6,7 +6,7 @@ tags: [Socket,Multi-thread]
 ## Introduction
 This is project 1 of [Distributed Systems (COMP90015) Semester 2, 2018](https://handbook.unimelb.edu.au/2018/subjects/comp90015), University of Melbourne. The program implemented a dictionary server and a client through multiple threads and sockets. The dictionary system follows a Client-Server structure with a thread-per-connection architecture. Dictionary datafile uses JSON format with a Java version of 8 and maven version of 3.5 for packaging jar files.  
 ### Download the source code
-Link: https://github.com/CN-WX/Dictionary/
+Link: https://github.com/jamesxwang/Dictionary/
 <!--more-->
 
 ### How to run?

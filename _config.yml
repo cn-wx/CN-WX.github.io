@@ -12,8 +12,8 @@ language: en
 timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as 'https://cn-wx.github.io/child' and root as '/child/'
-url: https://cn-wx.github.io
+## If your site is put in a subdirectory, set url as 'https://jamesxwang.github.io/child' and root as '/child/'
+url: https://jamesxwang.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -79,12 +79,12 @@ theme: next
 algolia:
   applicationID: 'QI0AF18FF2'
   apiKey: '250f1627481e6053b23b12198c791362'
-  indexName: 'cn-wx'
+  indexName: 'jamesxwang'
   chunkSize: 5000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/cn-wx/cn-wx.github.io.git
+  repository: https://github.com/jamesxwang/jamesxwang.github.io.git
   branch: master

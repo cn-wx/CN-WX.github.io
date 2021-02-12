@@ -12,9 +12,9 @@ before_install:
   - npm install -g hexo-cli --force
 
 before_script:
-  - git config user.name "cn-wx"
+  - git config user.name "jamesxwang"
   - git config user.email "xuwang2@student.unimelb.edu.au"
-  - sed -i'' "s~https://github.com/cn-wx/cn-wx.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/cn-wx/cn-wx.github.io.git~" _config.yml
+  - sed -i'' "s~https://github.com/jamesxwang/jamesxwang.github.io.git~https://${GITHUB_ACCESS_TOKEN}@github.com/jamesxwang/jamesxwang.github.io.git~" _config.yml
 
 install:
   - npm install

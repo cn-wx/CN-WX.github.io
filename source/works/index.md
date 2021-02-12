@@ -7,13 +7,13 @@ type: "works"
 # Vue-Hotspot
 
 A hotspot component for Vue.js
-Live Demo: [https://cn-wx.github.io/vue-hotspot](https://cn-wx.github.io/vue-hotspot)
-<!-- GitHub: [https://github.com/cn-wx/vue-hotspot](https://github.com/cn-wx/vue-hotspot) -->
+Live Demo: [https://jamesxwang.github.io/vue-hotspot](https://jamesxwang.github.io/vue-hotspot)
+<!-- GitHub: [https://github.com/jamesxwang/vue-hotspot](https://github.com/jamesxwang/vue-hotspot) -->
 ---
 
 # Mini MVVM mock-up
 
-GitHub: [https://github.com/cn-wx/MVVM](https://github.com/cn-wx/MVVM)
+GitHub: [https://github.com/jamesxwang/MVVM](https://github.com/jamesxwang/MVVM)
 
 ---
 

@@ -135,7 +135,7 @@ scheme: Pisces
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/CN-WX || github
+  GitHub: https://github.com/jamesxwang || github
   E-Mail: mailto:xuwang2@student.unimelb.edu.au || envelope
   Linkedin: https://www.linkedin.com/in/james-wang-cn/ || linkedin
   Website: https://www.amazingxu.xyz || link
@@ -373,7 +373,7 @@ han: false
 # Disqus
 disqus:
   enable: true
-  shortname: cn-wx
+  shortname: jamesxwang
   count: true
 
 # Hypercomments

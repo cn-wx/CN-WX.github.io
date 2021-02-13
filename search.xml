@@ -239,6 +239,63 @@
       </tags>
   </entry>
   <entry>
+    <title>Whistle Proxy</title>
+    <url>/2021/02/13/Whistle-Proxy/</url>
+    <content><![CDATA[<blockquote>
+<p>前端开发环境切换神器</p>
+</blockquote>
+<p>在开发过程中，经常会遇到后端接口还没完成或者没有发布到所需环境的情况。</p>
+<p>为了不阻塞前端开发，我们可以用whistle进行请求接口的代理。</p>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>首先，我们先安装whistle，可以参考官网教程: <a href="https://github.com/avwo/whistle">https://github.com/avwo/whistle</a></p>
+<p>命令行中输入 <code>w2 start</code> 开启whistle，默认端口为<code>8899</code></p>
+<a id="more"></a>
+
+<h2 id="Chrome-Extension"><a href="#Chrome-Extension" class="headerlink" title="Chrome Extension"></a>Chrome Extension</h2><p>访问：<a href="https://chrome.google.com/webstore/category/extensions%EF%BC%8C">https://chrome.google.com/webstore/category/extensions，</a> 搜索<code>Proxy SwitchyOmega</code>，将插件添加至Chrome中，添加一个whistle情景模式如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-1.png" alt="whistle-1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-2.png" alt="whistle-2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-3.png" alt="whistle-3"></p>
+<p>浏览器访问<code>http://127.0.0.1:8899/</code>即可进入配置页面。</p>
+<h2 id="Enable-Https-proxy"><a href="#Enable-Https-proxy" class="headerlink" title="Enable Https proxy"></a>Enable Https proxy</h2><p>下载根证书并安装它。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-4.png" alt="whistle-4"></p>
+<h2 id="Whistle-Vase-Plugin"><a href="#Whistle-Vase-Plugin" class="headerlink" title="Whistle Vase Plugin"></a>Whistle Vase Plugin</h2><p>然后，我们还需要安装一个插件，名为whistle.vase。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g whistle.vase</span><br></pre></td></tr></table></figure>
+<p>Unix / Linux用户需要加sudo进行安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install -g whistle.vase</span><br></pre></td></tr></table></figure>
+<p>在插件一栏能看到vase即安装成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-5.png" alt="whistle-5"></p>
+<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>可以通过点击<a href="http://127.0.0.1:8899/#plugins">Plugins</a>里的vase链接跳转或者直接访问 <a href="http://127.0.0.1:8899/whistle.vase/">http://127.0.0.1:8899/whistle.vase/</a> 进入到vase的配置页。</p>
+<p>vase有多种模板引擎，我们这里因为要mock接口数据，所以进行下图的操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-6.png" alt="whistle-6"></p>
+<p>script模板引擎的API如下：</p>
+<ol>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#outdata-delay-speed">out</a>: 所有的数据都要通过该方法才能输出到响应中，也可以用 write</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase/blob/master">status</a>: 设置输出的http状态码，默认为200，也可以写成 statusCode(code)</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#headername-value">header</a>: 设置响应头</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#statuscode">headers</a>: 批量设置响应头</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#filepath">file</a>: 读取本地文件</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#geturloptions">get</a>: 通过get方式获取线上文件，支持https及http协议</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#posturloptions">post</a>: 通过post方式获取线上文件，支持https及http协议</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#requestoptions">request</a>: 通过自定义方式获取线上文件，支持https及http协议</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#jsondata">json</a>: 将线上或本地文件、或字符串解析成json对象</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#mergejson--jsonn">merge</a>: 合并json对象</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#randomarg1--argn">random</a>: 随机输出</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#joinarr-seperator">join</a>: 合并字符串</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#req%E5%AF%B9%E8%B1%A1">req</a>: 用户请求对象</li>
+<li><a href="https://github.com/whistle-plugins/whistle.vase#rendertpl-locals-enginetype">render</a>: 渲染模板</li>
+</ol>
+<p>更多API详情可以在这里看到：<a href="https://github.com/whistle-plugins/whistle.vase#script-api">https://github.com/whistle-plugins/whistle.vase#script-api</a></p>
+<h1 id="Mock-ReSTful-API"><a href="#Mock-ReSTful-API" class="headerlink" title="Mock ReSTful API"></a>Mock ReSTful API</h1><p>接下来我们可以使用 out(data, delay, speed) 去模拟接口返回的数据：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/whistle/whistle-7.png" alt="whistle-7"></p>
+<p>最后就是在Rules一栏新建一个规则，把 需要mock的接口地址 和刚刚创建的 vase script模板 用空格分开写到一行就可以啦：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;iaas.cloud.tencent.com&#x2F;cgi&#x2F;capi?i&#x3D;monitor&#x2F;Describexxx vase:&#x2F;&#x2F;Describexxx</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-8.png" alt="whistle-8"></p>
+]]></content>
+      <tags>
+        <tag>Study Notes</tag>
+        <tag>Front End</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2018/05/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>

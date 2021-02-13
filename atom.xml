@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>James Wang - 王煦</title>
+  
+  
+  <link href="http://jamesxwang.com/atom.xml" rel="self"/>
+  
+  <link href="http://jamesxwang.com/"/>
+  <updated>2021-02-13T06:38:50.123Z</updated>
+  <id>http://jamesxwang.com/</id>
+  
+  <author>
+    <name>James Wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Advanced JavaScript</title>
+    <link href="http://jamesxwang.com/2019/09/15/Advanced-JavaScript/"/>
+    <id>http://jamesxwang.com/2019/09/15/Advanced-JavaScript/</id>
+    <published>2019-09-15T16:12:15.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This article records Javascript questions that I think is important but often ignored by people.&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/js/JavaScript.jpg&quot; alt=&quot;JavaScript&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="Front End" scheme="http://jamesxwang.com/categories/Study-Notes/Front-End/"/>
+    
+    
+    <category term="JavaScript" scheme="http://jamesxwang.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI Search Methods</title>
+    <link href="http://jamesxwang.com/2019/07/23/AI-Search-Methods/"/>
+    <id>http://jamesxwang.com/2019/07/23/AI-Search-Methods/</id>
+    <published>2019-07-23T23:00:26.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;Recently I am learning &lt;a href=&quot;http://ai.berkeley.edu/project_overview.html&quot;&gt;Berkley AI Pac-man Project&lt;/a&gt;, and it requires to use Search methods for finding fixed food dots, this article is used to record the learning process. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="Algorithm" scheme="http://jamesxwang.com/categories/Study-Notes/Algorithm/"/>
+    
+    
+    <category term="Python" scheme="http://jamesxwang.com/tags/Python/"/>
+    
+    <category term="AI" scheme="http://jamesxwang.com/tags/AI/"/>
+    
+    <category term="search algorithms" scheme="http://jamesxwang.com/tags/search-algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TrackHub</title>
+    <link href="http://jamesxwang.com/2019/06/17/TrackHub/"/>
+    <id>http://jamesxwang.com/2019/06/17/TrackHub/</id>
+    <published>2019-06-17T16:50:02.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/clustercloudcomputing/trackhub.png&quot; alt=&quot;TrackHub&quot;&gt;&lt;br&gt;This is project 2 of &lt;a href=&quot;https://handbook.unimelb.edu.au/2019/subjects/comp90024&quot;&gt;Cluster and Cloud Computing (COMP90024) Semester 1, 2019&lt;/a&gt;, University of Melbourne, named “TrackHub”. TrackHub  is  a  real-time  platform  that  could  track  the  twitter  user  and  theirpost content.  Our system analyzes the text and image posted by the user.  Theresults will be grouped by geolocation bounding box for further analysis.  Thefrontend  will  also  able  to  load  AURIN  data  to  build  the  data  visualizations.Currently, our system focuses on three of the seven deadly sins, the Lust, theWrath, and the Gluttony.&lt;/p&gt;
+&lt;h3 id=&quot;Video-Link&quot;&gt;&lt;a href=&quot;#Video-Link&quot; class=&quot;headerlink&quot; title=&quot;Video Link&quot;&gt;&lt;/a&gt;Video Link&lt;/h3&gt;&lt;p&gt;Youtube link: &lt;a href=&quot;https://youtu.be/M5xhnEHwKNg/&quot;&gt;https://youtu.be/M5xhnEHwKNg/&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="Full Stack" scheme="http://jamesxwang.com/categories/Study-Notes/Full-Stack/"/>
+    
+    
+    <category term="VUE" scheme="http://jamesxwang.com/tags/VUE/"/>
+    
+    <category term="Django" scheme="http://jamesxwang.com/tags/Django/"/>
+    
+    <category term="Ansible" scheme="http://jamesxwang.com/tags/Ansible/"/>
+    
+    <category term="NLP" scheme="http://jamesxwang.com/tags/NLP/"/>
+    
+    <category term="Grafana" scheme="http://jamesxwang.com/tags/Grafana/"/>
+    
+    <category term="CouchDB" scheme="http://jamesxwang.com/tags/CouchDB/"/>
+    
+    <category term="ReST" scheme="http://jamesxwang.com/tags/ReST/"/>
+    
+    <category term="OSS" scheme="http://jamesxwang.com/tags/OSS/"/>
+    
+    <category term="NSFW" scheme="http://jamesxwang.com/tags/NSFW/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Socket Dictionary</title>
+    <link href="http://jamesxwang.com/2018/09/07/Socket-Dictionary/"/>
+    <id>http://jamesxwang.com/2018/09/07/Socket-Dictionary/</id>
+    <published>2018-09-07T00:23:07.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;This is project 1 of &lt;a href=&quot;https://handbook.unimelb.edu.au/2018/subjects/comp90015&quot;&gt;Distributed Systems (COMP90015) Semester 2, 2018&lt;/a&gt;, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and sockets. The dictionary system follows a Client-Server structure with a thread-per-connection architecture. Dictionary datafile uses JSON format with a Java version of 8 and maven version of 3.5 for packaging jar files.  &lt;/p&gt;
+&lt;h3 id=&quot;Download-the-source-code&quot;&gt;&lt;a href=&quot;#Download-the-source-code&quot; class=&quot;headerlink&quot; title=&quot;Download the source code&quot;&gt;&lt;/a&gt;Download the source code&lt;/h3&gt;&lt;p&gt;Link: &lt;a href=&quot;https://github.com/jamesxwang/Dictionary/&quot;&gt;https://github.com/jamesxwang/Dictionary/&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="Back End" scheme="http://jamesxwang.com/categories/Study-Notes/Back-End/"/>
+    
+    
+    <category term="Socket" scheme="http://jamesxwang.com/tags/Socket/"/>
+    
+    <category term="Multi-thread" scheme="http://jamesxwang.com/tags/Multi-thread/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Setting up Spring REST API with Swagger2</title>
+    <link href="http://jamesxwang.com/2018/07/15/Setting-up-Spring-REST-API-with-Swagger2/"/>
+    <id>http://jamesxwang.com/2018/07/15/Setting-up-Spring-REST-API-with-Swagger2/</id>
+    <published>2018-07-15T22:53:32.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;When creating a RESTful API, good documentation is instrumental.&lt;br&gt;&lt;br&gt;Moreover, every change in the API should be simultaneously described in the reference documentation. Accomplishing this manually is a tedious exercise, so automation of the process was inevitable.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="Back End" scheme="http://jamesxwang.com/categories/Study-Notes/Back-End/"/>
+    
+    
+    <category term="Java" scheme="http://jamesxwang.com/tags/Java/"/>
+    
+    <category term="Spring Boot" scheme="http://jamesxwang.com/tags/Spring-Boot/"/>
+    
+    <category term="Swagger2" scheme="http://jamesxwang.com/tags/Swagger2/"/>
+    
+    <category term="RESTful API" scheme="http://jamesxwang.com/tags/RESTful-API/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker Learning Notes</title>
+    <link href="http://jamesxwang.com/2018/06/26/Docker-Learning-Notes/"/>
+    <id>http://jamesxwang.com/2018/06/26/Docker-Learning-Notes/</id>
+    <published>2018-06-26T21:44:07.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction：&quot;&gt;&lt;a href=&quot;#Introduction：&quot; class=&quot;headerlink&quot; title=&quot;Introduction：&quot;&gt;&lt;/a&gt;Introduction：&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Series of &lt;strong&gt;Docker Learning Notes&lt;/strong&gt; are based on:&lt;br&gt;OS：Ubuntu 16.04 LTS&lt;br&gt;Java version：Jdk 1.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;What-is-Docker&quot;&gt;&lt;a href=&quot;#What-is-Docker&quot; class=&quot;headerlink&quot; title=&quot;What is Docker?&quot;&gt;&lt;/a&gt;What is Docker?&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/docker/docker.jpg&quot; alt=&quot;docker&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker’s idea comes from cargo containers. What problem can cargo containers solve? For example, goods can be put in order on a large ship and all kinds of goods are standardized by containers, containers and containers do not interact with each other so that we don’t need a special fruit ship or a chemical carrier. As long as these goods are properly packaged in containers, we can transport them with one large ship. Docker is a similar idea like this. Cloud computing is now very popular, and cloud computing is like a big cargo ship while docker is a container.</summary>
+    
+    
+    
+    <category term="Study Notes" scheme="http://jamesxwang.com/categories/Study-Notes/"/>
+    
+    <category term="DevOps" scheme="http://jamesxwang.com/categories/Study-Notes/DevOps/"/>
+    
+    
+    <category term="docker" scheme="http://jamesxwang.com/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://jamesxwang.com/2018/05/14/hello-world/"/>
+    <id>http://jamesxwang.com/2018/05/14/hello-world/</id>
+    <published>2018-05-14T21:44:07.000Z</published>
+    <updated>2021-02-13T06:38:50.123Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -2,6 +2,7 @@
 title: Setting up Spring REST API with Swagger2
 date: 2018-07-15 22:53:32
 tags: [Java,Spring Boot,Swagger2,RESTful API]
+categories: ["Study Notes", "Back End"]
 ---
 ### Overview
 When creating a RESTful API, good documentation is instrumental.<br>

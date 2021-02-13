@@ -1,13 +1,14 @@
 ---
 title: AI Search Methods
-date: 2018-07-23 23:00:26
+date: 2019-07-23 23:00:26
 tags: [Python, AI, search algorithms]
+categories: ["Study Notes", "Algorithm"]
 ---
 ### Overview
 Recently I am learning [Berkley AI Pac-man Project](http://ai.berkeley.edu/project_overview.html), and it requires to use Search methods for finding fixed food dots, this article is used to record the learning process. 
 <!--more-->
 
-![pacman-game](../../../../images/AI/AI-pacman_game.gif)
+![pacman-game](https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-pacman_game.gif)
 
 ### Uninformed Search Methods
 #### Depth-First Search
@@ -23,7 +24,7 @@ void Dfs(Vertex V)
 }
 ```
 Illustration: (Nodes at depth 3 are assumed to have no successors)
-![AI-DFS](../../../../images/AI/AI-DFS.png)
+![AI-DFS](https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-DFS.png)
 
 DFS is like a stack, Last in first out (LIFO), and the successors in searchAgent.py is described as 
 ```bash
@@ -58,10 +59,12 @@ def getSuccessors(self, state):
     return successors
 ```
 West is the last direction appending to the successors[], so that the agent will turn left at every crossings with DFS algorithm, just like the gif below:
-![AI-DFS](../../../../images/AI/AI-DFS.gif)
+![AI-DFS](https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-DFS.gif)
 It is very obvious that DFS algorithm is not optimal nor complete.
 
 #### Breadth-First Search
-![AI-BFS](../../../../images/AI/AI-BFS.gif)
+![AI-BFS](https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-BFS.gif)
 
 #### Uniform-Cost Search
+
+TBC...

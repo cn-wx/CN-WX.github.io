@@ -2,10 +2,11 @@
 title: Advanced JavaScript
 date: 2019-09-15 16:12:15
 tags: [JavaScript]
+categories: ["Study Notes", "Front End"]
 ---
 
 This article records Javascript questions that I think is important but often ignored by people.
-![JavaScript](../../../../images/js/JavaScript.jpg)
+![JavaScript](https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/js/JavaScript.jpg)
 
 <!-- more -->
 

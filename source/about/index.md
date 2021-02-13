@@ -1,16 +1,17 @@
 ---
 title: About Me
-date: 2019-09-05 01:24:23
+date: 2021-02-13 11:44:55
 ---
+
 Master of Computer Science in the University of Melbourne.
 
 Happy coding, happy live.
 
 AIM: Full stack programmer
 
-Looking for: 2020 Graduate Program.
+Looking for: Front-End Developer Position.
 
-E-mail：xuwang2@student.unimelb.edu.au
+E-mail: xuwang2@student.unimelb.edu.au
 
 This is my <a href="Resume.pdf">Resume</a>
 

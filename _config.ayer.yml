@@ -236,7 +236,7 @@ ads:
     width: 300
   ad_2:
     title: 云服务器全球购低至2折
-    img: https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/tencent_cloud/ten_2.jpg
+    img: https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/ten_2.jpg
     url: https://curl.qcloud.com/0IRJ1HdW
     width: 300
   ad_3:

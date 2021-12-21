@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI Search Methods</title>
+    <url>/2019/07/23/AI-Search-Methods/</url>
+    <content><![CDATA[<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>Recently I am learning <a href="http://ai.berkeley.edu/project_overview.html">Berkley AI Pac-man Project</a>, and it requires to use Search methods for finding fixed food dots, this article is used to record the learning process. </p>
+<a id="more"></a>
+
+<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-pacman_game.gif" alt="pacman-game"></p>
+<h3 id="Uninformed-Search-Methods"><a href="#Uninformed-Search-Methods" class="headerlink" title="Uninformed Search Methods"></a>Uninformed Search Methods</h3><h4 id="Depth-First-Search"><a href="#Depth-First-Search" class="headerlink" title="Depth-First Search"></a>Depth-First Search</h4><p>Unlike Breadth-first Search (BFS) is to try all the possibilities of a vertex before accessing the next vertex., DFS is from vertex to vertex. After every possible attempt at a given vertex, it goes back to the last vertex to try the next vertex.<br>Algorithm template for DFS:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">void Dfs(Vertex V)</span><br><span class="line">&#123;</span><br><span class="line">    Visited[v] = True;</span><br><span class="line">    <span class="keyword">for</span> each W adjacent to V</span><br><span class="line">        <span class="keyword">if</span>(!Visited[W])</span><br><span class="line">            Dfs(W);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Illustration: (Nodes at depth 3 are assumed to have no successors)<br><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-DFS.png" alt="AI-DFS"></p>
+<p>DFS is like a stack, Last in first out (LIFO), and the successors in searchAgent.py is described as </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">def getSuccessors(self, state):</span><br><span class="line">    <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    Returns successor states, the actions they require, and a cost of 1.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">     As noted in search.py:</span></span><br><span class="line"><span class="string">         For a given state, this should return a list of triples,</span></span><br><span class="line"><span class="string">     (successor, action, stepCost), where &#x27;successor&#x27; is a</span></span><br><span class="line"><span class="string">     successor to the current state, &#x27;action&#x27; is the action</span></span><br><span class="line"><span class="string">     required to get there, and &#x27;stepCost&#x27; is the incremental</span></span><br><span class="line"><span class="string">     cost of expanding to that successor</span></span><br><span class="line"><span class="string">    &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    successors = []</span><br><span class="line">    <span class="keyword">for</span> action <span class="keyword">in</span> [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:</span><br><span class="line">        x,y = state</span><br><span class="line">        dx, dy = Actions.directionToVector(action)</span><br><span class="line">        nextx, nexty = int(x + dx), int(y + dy)</span><br><span class="line">        <span class="keyword">if</span> not self.walls[nextx][nexty]:</span><br><span class="line">            nextState = (nextx, nexty)</span><br><span class="line">            cost = self.costFn(nextState)</span><br><span class="line">            successors.append( ( nextState, action, cost) )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Bookkeeping for display purposes</span></span><br><span class="line">    self._expanded += 1</span><br><span class="line">    <span class="keyword">if</span> state not <span class="keyword">in</span> self._visited:</span><br><span class="line">        self._visited[state] = True</span><br><span class="line">        self._visitedlist.append(state)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> successors</span><br></pre></td></tr></table></figure>
+<p>West is the last direction appending to the successors[], so that the agent will turn left at every crossings with DFS algorithm, just like the gif below:<br><img src="https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-DFS.gif" alt="AI-DFS"><br>It is very obvious that DFS algorithm is not optimal nor complete.</p>
+<h4 id="Breadth-First-Search"><a href="#Breadth-First-Search" class="headerlink" title="Breadth-First Search"></a>Breadth-First Search</h4><p><img src="https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-BFS.gif" alt="AI-BFS"></p>
+<h4 id="Uniform-Cost-Search"><a href="#Uniform-Cost-Search" class="headerlink" title="Uniform-Cost Search"></a>Uniform-Cost Search</h4><p>TBC…</p>
+]]></content>
+      <categories>
+        <category>Study Notes</category>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>AI</tag>
+        <tag>search algorithms</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Advanced JavaScript</title>
     <url>/2019/09/15/Advanced-JavaScript/</url>
     <content><![CDATA[<p>This article records Javascript questions that I think is important but often ignored by people.<br><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/js/JavaScript.jpg" alt="JavaScript"></p>
@@ -37,32 +63,6 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI Search Methods</title>
-    <url>/2019/07/23/AI-Search-Methods/</url>
-    <content><![CDATA[<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>Recently I am learning <a href="http://ai.berkeley.edu/project_overview.html">Berkley AI Pac-man Project</a>, and it requires to use Search methods for finding fixed food dots, this article is used to record the learning process. </p>
-<a id="more"></a>
-
-<p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-pacman_game.gif" alt="pacman-game"></p>
-<h3 id="Uninformed-Search-Methods"><a href="#Uninformed-Search-Methods" class="headerlink" title="Uninformed Search Methods"></a>Uninformed Search Methods</h3><h4 id="Depth-First-Search"><a href="#Depth-First-Search" class="headerlink" title="Depth-First Search"></a>Depth-First Search</h4><p>Unlike Breadth-first Search (BFS) is to try all the possibilities of a vertex before accessing the next vertex., DFS is from vertex to vertex. After every possible attempt at a given vertex, it goes back to the last vertex to try the next vertex.<br>Algorithm template for DFS:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">void Dfs(Vertex V)</span><br><span class="line">&#123;</span><br><span class="line">    Visited[v] = True;</span><br><span class="line">    <span class="keyword">for</span> each W adjacent to V</span><br><span class="line">        <span class="keyword">if</span>(!Visited[W])</span><br><span class="line">            Dfs(W);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Illustration: (Nodes at depth 3 are assumed to have no successors)<br><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/AI/AI-DFS.png" alt="AI-DFS"></p>
-<p>DFS is like a stack, Last in first out (LIFO), and the successors in searchAgent.py is described as </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">def getSuccessors(self, state):</span><br><span class="line">    <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    Returns successor states, the actions they require, and a cost of 1.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">     As noted in search.py:</span></span><br><span class="line"><span class="string">         For a given state, this should return a list of triples,</span></span><br><span class="line"><span class="string">     (successor, action, stepCost), where &#x27;successor&#x27; is a</span></span><br><span class="line"><span class="string">     successor to the current state, &#x27;action&#x27; is the action</span></span><br><span class="line"><span class="string">     required to get there, and &#x27;stepCost&#x27; is the incremental</span></span><br><span class="line"><span class="string">     cost of expanding to that successor</span></span><br><span class="line"><span class="string">    &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    successors = []</span><br><span class="line">    <span class="keyword">for</span> action <span class="keyword">in</span> [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:</span><br><span class="line">        x,y = state</span><br><span class="line">        dx, dy = Actions.directionToVector(action)</span><br><span class="line">        nextx, nexty = int(x + dx), int(y + dy)</span><br><span class="line">        <span class="keyword">if</span> not self.walls[nextx][nexty]:</span><br><span class="line">            nextState = (nextx, nexty)</span><br><span class="line">            cost = self.costFn(nextState)</span><br><span class="line">            successors.append( ( nextState, action, cost) )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Bookkeeping for display purposes</span></span><br><span class="line">    self._expanded += 1</span><br><span class="line">    <span class="keyword">if</span> state not <span class="keyword">in</span> self._visited:</span><br><span class="line">        self._visited[state] = True</span><br><span class="line">        self._visitedlist.append(state)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> successors</span><br></pre></td></tr></table></figure>
-<p>West is the last direction appending to the successors[], so that the agent will turn left at every crossings with DFS algorithm, just like the gif below:<br><img src="https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-DFS.gif" alt="AI-DFS"><br>It is very obvious that DFS algorithm is not optimal nor complete.</p>
-<h4 id="Breadth-First-Search"><a href="#Breadth-First-Search" class="headerlink" title="Breadth-First Search"></a>Breadth-First Search</h4><p><img src="https://raw.githubusercontent.com/jamesxwang/cdn/master/img/AI/AI-BFS.gif" alt="AI-BFS"></p>
-<h4 id="Uniform-Cost-Search"><a href="#Uniform-Cost-Search" class="headerlink" title="Uniform-Cost Search"></a>Uniform-Cost Search</h4><p>TBC…</p>
-]]></content>
-      <categories>
-        <category>Study Notes</category>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>AI</tag>
-        <tag>search algorithms</tag>
       </tags>
   </entry>
   <entry>

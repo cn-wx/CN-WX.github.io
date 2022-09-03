@@ -242,14 +242,14 @@
     <title>Whistle Proxy</title>
     <url>/2021/02/13/Whistle-Proxy/</url>
     <content><![CDATA[<blockquote>
-<p>前端开发环境切换神器</p>
+<p>Front-end development environment switching artifact</p>
 </blockquote>
-<p>在开发过程中，经常会遇到后端接口还没完成或者没有发布到所需环境的情况。</p>
-<p>为了不阻塞前端开发，我们可以用whistle进行请求接口的代理。</p>
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>首先，我们先安装whistle，可以参考官网教程: <a href="https://github.com/avwo/whistle">https://github.com/avwo/whistle</a></p>
-<p>命令行中输入 <code>w2 start</code> 开启whistle，默认端口为<code>8899</code></p>
+<p>During the development process, it is often the case that the back-end API is not yet complete or not published to the required environment.</p>
+<p>In order not to block the front-end development, we can use whistle to proxy the request.</p>
 <a id="more"></a>
 
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>首先，我们先安装whistle，可以参考官网教程: <a href="https://github.com/avwo/whistle">https://github.com/avwo/whistle</a></p>
+<p>命令行中输入 <code>w2 start</code> 开启whistle，默认端口为<code>8899</code></p>
 <h2 id="Chrome-Extension"><a href="#Chrome-Extension" class="headerlink" title="Chrome Extension"></a>Chrome Extension</h2><p>访问：<a href="https://chrome.google.com/webstore/category/extensions%EF%BC%8C">https://chrome.google.com/webstore/category/extensions，</a> 搜索<code>Proxy SwitchyOmega</code>，将插件添加至Chrome中，添加一个whistle情景模式如图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-1.png" alt="whistle-1"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jamesxwang/cdn/img/whistle/whistle-2.png" alt="whistle-2"></p>
@@ -310,15 +310,15 @@
 ]]></content>
   </entry>
   <entry>
-    <title>V2ray + TLS + Nginx 反向代理科学上网</title>
+    <title>V2ray + TLS + Nginx setting up VPN</title>
     <url>/2021/07/03/v2ray-tls-nginx/</url>
     <content><![CDATA[<blockquote>
-<p>本文仅做学习记录用途</p>
+<p>For Learning Purposes Only</p>
 </blockquote>
-<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>First of all，申请境外服务器，e.g. CentOS / Ubuntu，并配置好安全组，关闭防火墙。</p>
-<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="添加CentOS-7-Nginx-yum资源库："><a href="#添加CentOS-7-Nginx-yum资源库：" class="headerlink" title="添加CentOS 7 Nginx yum资源库："></a>添加CentOS 7 Nginx yum资源库：</h2><p>使用yum从Nginx源服务器中获取来安装Nginx：</p>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>First of all，buy a server，e.g. CentOS / Ubuntu, configure the security groups and close the firewall.</p>
 <a id="more"></a>
 
+<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="添加CentOS-7-Nginx-yum资源库："><a href="#添加CentOS-7-Nginx-yum资源库：" class="headerlink" title="添加CentOS 7 Nginx yum资源库："></a>添加CentOS 7 Nginx yum资源库：</h2><p>使用yum从Nginx源服务器中获取来安装Nginx：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rpm -Uvh http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;centos&#x2F;7&#x2F;noarch&#x2F;RPMS&#x2F;nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 <h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure>

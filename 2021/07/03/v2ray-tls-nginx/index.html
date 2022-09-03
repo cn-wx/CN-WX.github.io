@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    V2ray + TLS + Nginx 反向代理科学上网 |  James Wang
+    V2ray + TLS + Nginx setting up VPN |  James Wang
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  V2ray + TLS + Nginx 反向代理科学上网
+  V2ray + TLS + Nginx setting up VPN
 </h1>
  
 
@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">990</span>
+            <span class="post-count">976</span>
         </span>
     </span>
 
@@ -96,12 +96,12 @@
     <div class="article-entry" itemprop="articleBody">
        
   <blockquote>
-<p>本文仅做学习记录用途</p>
+<p>For Learning Purposes Only</p>
 </blockquote>
-<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>First of all，申请境外服务器，e.g. CentOS / Ubuntu，并配置好安全组，关闭防火墙。</p>
-<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="添加CentOS-7-Nginx-yum资源库："><a href="#添加CentOS-7-Nginx-yum资源库：" class="headerlink" title="添加CentOS 7 Nginx yum资源库："></a>添加CentOS 7 Nginx yum资源库：</h2><p>使用yum从Nginx源服务器中获取来安装Nginx：</p>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>First of all，buy a server，e.g. CentOS / Ubuntu, configure the security groups and close the firewall.</p>
 <a id="more"></a>
 
+<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="添加CentOS-7-Nginx-yum资源库："><a href="#添加CentOS-7-Nginx-yum资源库：" class="headerlink" title="添加CentOS 7 Nginx yum资源库："></a>添加CentOS 7 Nginx yum资源库：</h2><p>使用yum从Nginx源服务器中获取来安装Nginx：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;centos&#x2F;7&#x2F;noarch&#x2F;RPMS&#x2F;nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 <h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></table></figure>
@@ -214,7 +214,7 @@
     
     
       <a href="/2021/02/13/Whistle-Proxy/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
+        <strong class="article-nav-caption">Next Post</strong>
         <div class="article-nav-title">Whistle Proxy</div>
       </a>
     
@@ -234,7 +234,7 @@
     app_key: "38HdzRYvK3U4wmCXxwDP2mnE",
     path: window.location.pathname,
     avatar: "robohash",
-    placeholder: "给我的文章加点评论吧~",
+    placeholder: "Gimme some feedback on the comments~",
     recordIP: true,
   });
   const infoEle = document.querySelector("#vcomments .info");
@@ -344,35 +344,31 @@
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
+      <a class="nav-item-link" href="/">Home</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
+      <a class="nav-item-link" href="/archives">Archives</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
+      <a class="nav-item-link" href="/categories">Categories</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">标签</a>
+      <a class="nav-item-link" href="/tags">Tags</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/travel/">旅行</a>
+      <a class="nav-item-link" href="/works">Works</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/works">作品</a>
+      <a class="nav-item-link" href="/friends">Friends</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/friends">友链</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
+      <a class="nav-item-link" href="/about">About</a>
     </li>
     
   </ul>
@@ -411,7 +407,7 @@
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <p class="reward-p"><i class="ri-cup-line"></i>Buy me a coffee~</p>
   <div class="reward-box">
     
     <div class="reward-item">

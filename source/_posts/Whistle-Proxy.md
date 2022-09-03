@@ -4,18 +4,19 @@ date: 2021-02-13 15:19:16
 tags: ["Study Notes", "Front End"]
 ---
 
-> 前端开发环境切换神器
+> Front-end development environment switching artifact
 
-在开发过程中，经常会遇到后端接口还没完成或者没有发布到所需环境的情况。
+During the development process, it is often the case that the back-end API is not yet complete or not published to the required environment.
 
-为了不阻塞前端开发，我们可以用whistle进行请求接口的代理。
+In order not to block the front-end development, we can use whistle to proxy the request.
+
+<!-- more -->
 
 # Installation
 
 首先，我们先安装whistle，可以参考官网教程: https://github.com/avwo/whistle
 
 命令行中输入 `w2 start` 开启whistle，默认端口为`8899`
-<!-- more -->
 
 ## Chrome Extension
 

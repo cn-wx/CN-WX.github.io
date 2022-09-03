@@ -1,21 +1,22 @@
 ---
-title: V2ray + TLS + Nginx 反向代理科学上网
+title: V2ray + TLS + Nginx setting up VPN
 date: 2021-07-03 23:35:11
 tags: ["v2ray", "nginx"]
 categories: ["Study Notes"]
 ---
 
-> 本文仅做学习记录用途
+> For Learning Purposes Only
 
 # Prerequisites
-First of all，申请境外服务器，e.g. CentOS / Ubuntu，并配置好安全组，关闭防火墙。
+First of all，buy a server，e.g. CentOS / Ubuntu, configure the security groups and close the firewall.
+
+<!-- more -->
 
 # Nginx
 
 ## 添加CentOS 7 Nginx yum资源库：
 
 使用yum从Nginx源服务器中获取来安装Nginx：
-<!-- more -->
 
 ```
 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm

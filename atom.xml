@@ -6,7 +6,7 @@
   <link href="http://jamesxwang.com/atom.xml" rel="self"/>
   
   <link href="http://jamesxwang.com/"/>
-  <updated>2022-11-27T09:12:13.595Z</updated>
+  <updated>2022-11-27T09:12:28.135Z</updated>
   <id>http://jamesxwang.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://jamesxwang.com/2021/07/03/v2ray-tls-nginx/"/>
     <id>http://jamesxwang.com/2021/07/03/v2ray-tls-nginx/</id>
     <published>2021-07-03T23:35:11.000Z</published>
-    <updated>2022-11-27T09:12:13.595Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -45,7 +45,7 @@
     <link href="http://jamesxwang.com/2021/02/13/Whistle-Proxy/"/>
     <id>http://jamesxwang.com/2021/02/13/Whistle-Proxy/</id>
     <published>2021-02-13T15:19:16.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -68,7 +68,7 @@
     <link href="http://jamesxwang.com/2021/01/01/%E2%9D%84%EF%B8%8F%E5%8C%97%E5%9B%BD%E9%A3%8E%E5%85%89%E2%9D%84%EF%B8%8F/"/>
     <id>http://jamesxwang.com/2021/01/01/%E2%9D%84%EF%B8%8F%E5%8C%97%E5%9B%BD%E9%A3%8E%E5%85%89%E2%9D%84%EF%B8%8F/</id>
     <published>2021-01-01T00:35:11.000Z</published>
-    <updated>2022-11-27T09:12:13.595Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;p&gt;跟朋友们在东北从2020年跨到2021年，真实地感受到了东北人的热情。&lt;br&gt;写此文记录一下去过的景点；&lt;br&gt;为了方便观看将照片拼在了一起；&lt;/p&gt;</summary>
@@ -87,7 +87,7 @@
     <link href="http://jamesxwang.com/2019/09/15/Advanced-JavaScript/"/>
     <id>http://jamesxwang.com/2019/09/15/Advanced-JavaScript/</id>
     <published>2019-09-15T16:12:15.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.131Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article records Javascript questions that I think is important but often ignored by people.&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/js/JavaScript.jpg&quot; alt=&quot;JavaScript&quot;&gt;&lt;/p&gt;</summary>
@@ -108,7 +108,7 @@
     <link href="http://jamesxwang.com/2019/07/23/AI-Search-Methods/"/>
     <id>http://jamesxwang.com/2019/07/23/AI-Search-Methods/</id>
     <published>2019-07-23T23:00:26.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.131Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;Recently I am learning &lt;a href=&quot;http://ai.berkeley.edu/project_overview.html&quot;&gt;Berkley AI Pac-man Project&lt;/a&gt;, and it requires to use Search methods for finding fixed food dots, this article is used to record the learning process. &lt;/p&gt;</summary>
@@ -133,7 +133,7 @@
     <link href="http://jamesxwang.com/2019/06/17/TrackHub/"/>
     <id>http://jamesxwang.com/2019/06/17/TrackHub/</id>
     <published>2019-06-17T16:50:02.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/jamesxwang/cdn@master/img/clustercloudcomputing/trackhub.png&quot; alt=&quot;TrackHub&quot;&gt;&lt;br&gt;This is project 2 of &lt;a href=&quot;https://handbook.unimelb.edu.au/2019/subjects/comp90024&quot;&gt;Cluster and Cloud Computing (COMP90024) Semester 1, 2019&lt;/a&gt;, University of Melbourne, named “TrackHub”. TrackHub  is  a  real-time  platform  that  could  track  the  twitter  user  and  theirpost content.  Our system analyzes the text and image posted by the user.  Theresults will be grouped by geolocation bounding box for further analysis.  Thefrontend  will  also  able  to  load  AURIN  data  to  build  the  data  visualizations.Currently, our system focuses on three of the seven deadly sins, the Lust, theWrath, and the Gluttony.&lt;/p&gt;
@@ -171,7 +171,7 @@
     <link href="http://jamesxwang.com/2018/09/07/Socket-Dictionary/"/>
     <id>http://jamesxwang.com/2018/09/07/Socket-Dictionary/</id>
     <published>2018-09-07T00:23:07.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;This is project 1 of &lt;a href=&quot;https://handbook.unimelb.edu.au/2018/subjects/comp90015&quot;&gt;Distributed Systems (COMP90015) Semester 2, 2018&lt;/a&gt;, University of Melbourne. The program implemented a dictionary server and a client through multiple threads and sockets. The dictionary system follows a Client-Server structure with a thread-per-connection architecture. Dictionary datafile uses JSON format with a Java version of 8 and maven version of 3.5 for packaging jar files.  &lt;/p&gt;
@@ -195,7 +195,7 @@
     <link href="http://jamesxwang.com/2018/07/15/Setting-up-Spring-REST-API-with-Swagger2/"/>
     <id>http://jamesxwang.com/2018/07/15/Setting-up-Spring-REST-API-with-Swagger2/</id>
     <published>2018-07-15T22:53:32.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h3&gt;&lt;p&gt;When creating a RESTful API, good documentation is instrumental.&lt;br&gt;&lt;br&gt;Moreover, every change in the API should be simultaneously described in the reference documentation. Accomplishing this manually is a tedious exercise, so automation of the process was inevitable.&lt;/p&gt;</summary>
@@ -222,7 +222,7 @@
     <link href="http://jamesxwang.com/2018/06/26/Docker-Learning-Notes/"/>
     <id>http://jamesxwang.com/2018/06/26/Docker-Learning-Notes/</id>
     <published>2018-06-26T21:44:07.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction：&quot;&gt;&lt;a href=&quot;#Introduction：&quot; class=&quot;headerlink&quot; title=&quot;Introduction：&quot;&gt;&lt;/a&gt;Introduction：&lt;/h1&gt;&lt;ul&gt;
@@ -248,7 +248,7 @@
     <link href="http://jamesxwang.com/2018/05/14/hello-world/"/>
     <id>http://jamesxwang.com/2018/05/14/hello-world/</id>
     <published>2018-05-14T21:44:07.000Z</published>
-    <updated>2022-11-27T09:12:13.591Z</updated>
+    <updated>2022-11-27T09:12:28.135Z</updated>
     
     
       
